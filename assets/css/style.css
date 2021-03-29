@@ -1,0 +1,57 @@
+/* General Styles */
+
+body {
+    font-family: Verdana;
+    background-color: #ffffff;
+    margin: 5px;
+}
+
+a {
+    color: #218380;
+}
+
+a:visited {
+    color: #31C4BF;
+}
+
+button {
+    color: #ffffff;
+    background-color: #218380;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+}
+
+button:hover {
+    background-color: rgba(33, 131, 127, .5);
+}
+
+/* Header Styles */
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Card Styles */
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    max-width: 80%;
+    margin-top: 15vh;
+}
+
+/* Start div styles */
+
+#start-screen {
+    text-align: center;
+}
+
+/* Question div styles */
+
+/* Score div styles */
