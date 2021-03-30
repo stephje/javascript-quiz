@@ -3,8 +3,16 @@
 body {
     font-family: Verdana;
     background-color: #ffffff;
-    margin: 5px;
+    margin: 2%;
 }
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* General Link Styles */
 
 a {
     color: #218380;
@@ -14,16 +22,23 @@ a:visited {
     color: #31C4BF;
 }
 
-button {
+/* General Button Styles */
+
+.button {
+    display: block;
     color: #ffffff;
     background-color: #218380;
-    padding: 8px;
+    padding: 5px;
     border-radius: 8px;
     border: none;
 }
 
 button:hover {
     background-color: rgba(33, 131, 127, .5);
+}
+
+.inline-buttons {
+    display: inline-flex;
 }
 
 /* Header Styles */
@@ -35,23 +50,43 @@ header {
 
 /* Card Styles */
 
-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .card {
-    max-width: 80%;
+    width: 80%;
     margin-top: 15vh;
 }
 
 /* Start div styles */
 
 #start-screen {
+    display: inline;
     text-align: center;
 }
 
 /* Question div styles */
 
+.answer-button {
+    width: 100%;
+    text-align: left;
+    padding: 2%;
+}
+
 /* Score div styles */
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+.text-input {
+    padding-right: 8px;
+}
+
+/* Highscore div styles */
+
+.back-button {
+    margin-right: 8px;
+}
+
+.highscore-list {
+    padding-inline-start: 20px;
+}

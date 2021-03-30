@@ -15,34 +15,47 @@
     </header>
 
     <main>
-        <div id=start-screen class="card">
-            <h2>Coding Quiz Challenge</h2>
-            <p>Try to answer to following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-            <button>Start Quiz</button>
+        <div id=start-card class="card">
+            <h2 id=title>Coding Quiz Challenge</h2>
+            <p>Try to answer to following code-related questions within the time limit. <br><br> Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <button id=start-button class="button">Start Quiz</button>
         </div>
 
-        <div id=question-screen class="card">
-            <h2></h2>
-            <button>1. </button>
-            <button>2. </button>
-            <button>3. </button>
-            <button>4. </button>
-            <hr>
-            <p></p>
+        <div id=question-card class="card">
+            <h2 id=question></h2>
+            <button class="button answer-button">1. </button>
+            <button class="button answer-button">2. </button>
+            <button class="button answer-button">3. </button>
+            <button class="button answer-button">4. </button>
+            <div id=result>
+                <hr>
+                <p></p>
+            </div>
         </div>
 
-        <div id=score-screen class="card">
+        <div id=score-card class="card">
             <h2>All done!</h2>
-            <p>Your final score is </p>
-            <form action="" method="get" class="form">
+            <p>Your final score is <span id=score></span>.</p>
+            <form action="" method="get">
                 <div class="text-input">
                   <label for="initials">Enter initials: </label>
                   <input type="text" id="initials" required>
                 </div>
-                <div class="submit-button">
-                  <input type="submit" value="Submit">
+                <div>
+                  <input type="submit" value="Submit" class="button submit-button">
                 </div>
               </form>
+        </div>
+
+        <div id=highscore-card class="card">
+            <h2>Highscores</h2>
+            <ol class="highscore-list">
+                <li class="highscore-item">test</li>
+            </ol>
+            <div class="inline-buttons">
+                <button class="button back-button">Go Back</button>
+                <button class="button clear-button">Clear Highscores</button>
+            </div>
         </div>
 
     </main>
