@@ -2,7 +2,7 @@
 const startCard = document.querySelector("#start-card");
 const questionCard = document.querySelector("#question-card");
 const scoreCard = document.querySelector("#score-card");
-const leaderboardCard = document.querySelector("#leaderboard-card")
+const leaderboardCard = document.querySelector("#leaderboard-card");
 
 //hide all cards
 function hideCards (){
@@ -15,6 +15,18 @@ function hideCards (){
 //hide result text as required
 function hideResultText() {
     resultDiv.style.display = "none";
+}
+
+//use link to view highscores
+const leaderboardLink = document.querySelector("#leaderboard-link");
+leaderboardLink.addEventListener("click", showLeaderboard);
+
+function showLeaderboard(){
+    hideCards();
+    leaderboardCard.removeAttribute("hidden");
+    clearInterval(intervalID);
+    time = undefined;
+    displayTime();
 }
 
 //store question text, options and answers in an array
@@ -41,18 +53,12 @@ const questions = [
     }
 ]
 
-//Timer start value
-var time = 40;
-
 //display available time in header of page as required
-var timeDisplay = document.querySelector("#time")
+var timeDisplay = document.querySelector("#time");
 
 function displayTime() {
     timeDisplay.textContent = time;
 }
-
-//inervalID will be defined when start button is clicked
-var intervalID = undefined;
 
 //reduce time by 1 and display new value
 //if time runs out then end quiz
@@ -71,23 +77,25 @@ function countdown() {
 //display available time
 document.querySelector("#start-button").addEventListener("click", startQuiz);
 
+var currentQuestion = 0;
+
 function startQuiz() {
     hideCards();
     questionCard.removeAttribute("hidden");
+    currentQuestion = 0;
+    time = 40;
     displayQuestion();
-    intervalID = setInterval(countdown, 1000)
+    intervalID = setInterval(countdown, 1000);
     displayTime();
 }
 
 //display the question and answer options for the current question
-var currentQuestion = 0
-
 function displayQuestion() {
     var question = questions[currentQuestion];
     var h2QuestionElement = document.querySelector("#question-text");
     h2QuestionElement.textContent = question.questionText;
     
-    var options = question.options
+    var options = question.options;
 
     for (let i = 0; i < options.length; i++) {
         var option = options[i];
@@ -115,10 +123,10 @@ function checkAnswer(eventObject) {
     resultDiv.style.display = "block";
     if(optionIsCorrect(optionButton)) {
         resultText.textContent = "Correct! :D";
-        setTimeout(hideResultText, 1000)
+        setTimeout(hideResultText, 1000);
     } else {
         resultText.textContent = "WRONG! :(";
-        setTimeout(hideResultText, 1000)
+        setTimeout(hideResultText, 1000);
         if (time >= 10) {
             time = time - 10;
             displayTime();
@@ -139,7 +147,7 @@ function checkAnswer(eventObject) {
 }
 
 //display scorecard and hide other divs
-var score = document.querySelector("#score")
+var score = document.querySelector("#score");
 
 function endQuiz() {
     clearInterval(intervalID);
@@ -165,21 +173,65 @@ function storeScore(event){
     score: time
     }
 
-    //check if there is already a key "leaderboardArray" in local storage
-    var storedLeaderboard = localStorage.getItem("leaderboardArray");
-    if (storedLeaderboard !== null) {
-        leaderboardArray = JSON.parse(storedLeaderboard);
-    }
+    updateLeaderboard();
 
     //append new leaderboard item to leaderboard array
     leaderboardArray.push(leaderboardItem);
-    localStorage.setItem("leaderboard", JSON.stringify(leaderboardArray));
+    localStorage.setItem("leaderboardArray", JSON.stringify(leaderboardArray));
 
     //hide the question card, display the leaderboardcard
     hideCards();
     leaderboardCard.removeAttribute("hidden");
+
+    sortLeaderboard();
+    renderLeaderboard();
 }
 
+//get "leaderboardArray" from local storage (if it exists) and parse it into a javascript object using JSON.parse
+function updateLeaderboard() {
+    var storedLeaderboard = localStorage.getItem("leaderboardArray");
+    if (storedLeaderboard !== null) {
+        leaderboardArray = JSON.parse(storedLeaderboard);
+    }
+}
 
-//Clear Scoreboard
-//Go back button loops to start
+function sortLeaderboard() {
+    updateLeaderboard();
+    if (!leaderboardArray) {
+        return;
+    }
+
+    //sort array highest to lowest
+    leaderboardArray.sort(function(a, b) {
+        return b.score - a.score;
+    });
+}
+
+function renderLeaderboard(){
+    var highscoreList = document.querySelector("#highscore-list");
+    highscoreList.innerHTML = "";
+    for (let i = 0; i < leaderboardArray.length; i++) {
+        var leaderboardEntry = leaderboardArray[i];
+        var newListItem = document.createElement("li");
+        newListItem.textContent = (leaderboardEntry.initials + " - " + leaderboardEntry.score);
+        highscoreList.append(newListItem); 
+    }
+}
+
+const clearButton = document.querySelector("#clear-button");
+clearButton.addEventListener("click", clearHighscores);
+
+function clearHighscores() {
+    localStorage.clear();
+    leaderboardArray = [];
+    renderLeaderboard();
+}
+
+const backButton = document.querySelector("#back-button");
+backButton.addEventListener("click", returnToStart);
+
+//Hide leaderboard card show start card
+function returnToStart() {
+    hideCards();
+    startCard.removeAttribute("hidden");
+}

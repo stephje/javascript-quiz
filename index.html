@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <a href="">View Highscores</a>
+        <a id=leaderboard-link>View Highscores</a>
         <time>Time: <span id="time"></span></time>
     </header>
 
@@ -51,12 +51,11 @@
 
         <div hidden id=leaderboard-card class="card">
             <h2>Highscores</h2>
-            <ol class="highscore-list">
-                <li class="highscore-item"></li>
+            <ol id="highscore-list">
             </ol>
             <div class="inline-buttons">
-                <button class="button back-button">Go Back</button>
-                <button class="button clear-button">Clear Highscores</button>
+                <button id="back-button" class="button">Go Back</button>
+                <button id="clear-button" class="button">Clear Highscores</button>
             </div>
         </div>
 
