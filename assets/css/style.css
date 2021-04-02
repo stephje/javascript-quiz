@@ -28,7 +28,7 @@ a:visited {
     display: block;
     color: #ffffff;
     background-color: #218380;
-    padding: 5px;
+    padding: 2vh;
     border-radius: 8px;
     border: none;
 }
@@ -51,7 +51,7 @@ header {
 /* Card Styles */
 
 .card {
-    width: 80%;
+    width: 90%;
     margin-top: 15vh;
 }
 
@@ -67,7 +67,7 @@ header {
 .option-button {
     width: 100%;
     text-align: left;
-    padding: 2%;
+    margin: 5px;
 }
 
 #result-div {
@@ -85,14 +85,21 @@ header {
 #initials {
     width: 25%;
     margin: 8px;
+    padding: 1vh;
 }
 
 /* Leaderboard div styles */
 
-.back-button {
+#back-button {
     margin-right: 8px;
 }
 
 .highscore-list {
     padding-inline-start: 20px;
+}
+
+@media screen and (min-width = 420px) {
+    .card {
+        width: 80%;
+    }
 }

@@ -17,18 +17,6 @@ function hideResultText() {
     resultDiv.style.display = "none";
 }
 
-//use link to view highscores
-const leaderboardLink = document.querySelector("#leaderboard-link");
-leaderboardLink.addEventListener("click", showLeaderboard);
-
-function showLeaderboard(){
-    hideCards();
-    leaderboardCard.removeAttribute("hidden");
-    clearInterval(intervalID);
-    time = undefined;
-    displayTime();
-}
-
 //store question text, options and answers in an array
 const questions = [
     {
@@ -50,8 +38,16 @@ const questions = [
         questionText: "A very useful tool used during development and debugging for printing content to the debugger is:",
         options: ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"],
         answer: "4. console.log"
+    },
+    {
+        questionText: "Which of the following is a statement that can be used to terminate a loop, switch or label statement?",
+        options: ["1. break", "2. stop", "3. halt", "4. exit"],
+        answer: "1. break"
     }
 ]
+
+//intervalID assigned a value when start button is clicked
+var intervalID = undefined;
 
 //display available time in header of page as required
 var timeDisplay = document.querySelector("#time");
@@ -70,20 +66,31 @@ function countdown() {
     }
 }
 
+//use link to view highscores
+const leaderboardLink = document.querySelector("#leaderboard-link");
+leaderboardLink.addEventListener("click", showLeaderboard);
+
+function showLeaderboard(){
+    hideCards();
+    leaderboardCard.removeAttribute("hidden");
+    clearInterval(intervalID);
+    time = undefined;
+    displayTime();
+}
+
 //When "start" button is clicked:
 //hide the start card, 
 //reveal the question card,
 //invoke function to display first question, 
 //display available time
 document.querySelector("#start-button").addEventListener("click", startQuiz);
-
 var currentQuestion = 0;
 
 function startQuiz() {
     hideCards();
     questionCard.removeAttribute("hidden");
     currentQuestion = 0;
-    time = 40;
+    time = 60;
     displayQuestion();
     intervalID = setInterval(countdown, 1000);
     displayTime();
@@ -122,10 +129,10 @@ function checkAnswer(eventObject) {
     var optionButton = eventObject.target;
     resultDiv.style.display = "block";
     if(optionIsCorrect(optionButton)) {
-        resultText.textContent = "Correct! :D";
+        resultText.textContent = "Correct!";
         setTimeout(hideResultText, 1000);
     } else {
-        resultText.textContent = "WRONG! :(";
+        resultText.textContent = "Incorrect!";
         setTimeout(hideResultText, 1000);
         if (time >= 10) {
             time = time - 10;
