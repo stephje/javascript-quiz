@@ -11,7 +11,7 @@
 <body>
     <header>
         <a href="">View Highscores</a>
-        <time>Time: </time>
+        <time>Time: <span id="time"></span></time>
     </header>
 
     <main>
@@ -21,36 +21,38 @@
             <button id=start-button class="button">Start Quiz</button>
         </div>
 
-        <div id=question-card class="card">
-            <h2 id=question></h2>
-            <button class="button answer-button">1. <span class="answer" id=answer-two></span></button>
-            <button class="button answer-button">2. <span class="answer" id=answer-two></span></button>
-            <button class="button answer-button">3. <span class="answer" id=answer-three></span></button>
-            <button class="button answer-button">4. <span class="answer" id=answer-four></span></button>
-            <div id=result>
-                <hr>
-                <p></p>
+        <div hidden id=question-card class="card">
+
+            <h2 id=question-text></h2>
+
+            <div id=quiz-options>
+                <button id=option0 class="button option-button"></button>
+                <button id=option1 class="button option-button"></button>
+                <button id=option2 class="button option-button"></button>
+                <button id=option3 class="button option-button"></button>
             </div>
+
+            <div id=result-div>
+                <hr>
+                <p id=result-text></p>
+            </div>
+
         </div>
 
-        <div id=score-card class="card">
+        <div hidden id=score-card class="card">
             <h2>All done!</h2>
             <p>Your final score is <span id=score></span>.</p>
-            <form action="" method="get">
-                <div class="text-input">
+            <form class="inline-form" id="submission-form">
                   <label for="initials">Enter initials: </label>
                   <input type="text" id="initials" required>
-                </div>
-                <div>
-                  <input type="submit" value="Submit" class="button submit-button">
-                </div>
-              </form>
+                  <button id="submit-button" class="button">Submit</button>
+            </form>
         </div>
 
-        <div id=highscore-card class="card">
+        <div hidden id=leaderboard-card class="card">
             <h2>Highscores</h2>
             <ol class="highscore-list">
-                <li class="highscore-item">test</li>
+                <li class="highscore-item"></li>
             </ol>
             <div class="inline-buttons">
                 <button class="button back-button">Go Back</button>

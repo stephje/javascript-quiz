@@ -64,24 +64,30 @@ header {
 
 /* Question div styles */
 
-.answer-button {
+.option-button {
     width: 100%;
     text-align: left;
     padding: 2%;
 }
 
+#result-div {
+    display: none;
+}
+
 /* Score div styles */
 
-form {
+.inline-form {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
-.text-input {
-    padding-right: 8px;
+#initials {
+    width: 25%;
+    margin: 8px;
 }
 
-/* Highscore div styles */
+/* Leaderboard div styles */
 
 .back-button {
     margin-right: 8px;
