@@ -29,7 +29,7 @@ THEN I can save my initials and my score
 
 https://stephje.github.io/javascript-quiz/
 
-## Screenshot of Deployed Application
+## Screenshots of Deployed Application
 
 ![Deployed Website](./assets/images/startcard.png)
 
