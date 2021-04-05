@@ -175,6 +175,12 @@ function storeScore(event){
     //prevent default behaviour of form submission
     event.preventDefault();
 
+    //check for input
+    if (!inputElement.value) {
+        alert('Please enter your initials before pressing submit!');
+        return;
+      }
+
     //store score and initials in an object
     var leaderboardItem = {
     initials: inputElement.value,
