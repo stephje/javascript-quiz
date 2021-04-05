@@ -126,6 +126,7 @@ function optionIsCorrect(optionButton) {
 
 //if answer is incorrect, penalise time
 function checkAnswer(eventObject) {
+    console.log(eventObject);
     var optionButton = eventObject.target;
     resultDiv.style.display = "block";
     if(optionIsCorrect(optionButton)) {
