@@ -90,7 +90,7 @@ function startQuiz() {
     hideCards();
     questionCard.removeAttribute("hidden");
     currentQuestion = 0;
-    time = 60;
+    time = 100;
     displayQuestion();
     intervalID = setInterval(countdown, 1000);
     displayTime();
