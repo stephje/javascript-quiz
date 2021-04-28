@@ -1,139 +1,122 @@
-/* General Styles */
+/* Body Styles */
 
 body {
-    font-family: Verdana;
-    background-color: #ffffff;
-    margin: 0px;
+  font-family: Verdana;
+  background-color: #ffffff;
+  margin: 0px;
 }
 
 /* Header Styles  */
 
 header {
-    background-color: #218380;
-    color: #ffffff;
-    padding: 3vh;
+  display: flex;
+  justify-content: space-between;
+  background-color: #218380;
+  color: #ffffff;
+  padding: 3vh;
 }
 
-/* specify min-width to give enough space for the span inside the time element to contain 3 digits without visibly moving the "time" text */
+/* specify min-width for time element to give enough space for the span inside it to contain 3 digits without visibly moving the "time" text */
 
 time {
-    min-width: 85px;
+  min-width: 85px;
 }
 
-/* Main styles */
+/* Main Styles */
 
 main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-/* General Link Styles */
-
-a {
-    color: #ffffff;
-    ;
-}
-
-a:visited {
-    color: #ffffff;
-}
-
-/* General Button Styles */
+/* Button Styles */
 
 .button {
-    display: block;
-    color: #ffffff;
-    background-color: #218380;
-    padding: 2vh;
-    border-radius: 8px;
-    border: none;
+  display: block;
+  color: #ffffff;
+  background-color: #218380;
+  padding: 2vh;
+  border-radius: 8px;
+  border: none;
 }
 
 .inline-buttons {
-    display: inline-flex;
-}
-
-/* Header Styles */
-
-header {
-    display: flex;
-    justify-content: space-between;
+  display: inline-flex;
 }
 
 /* Card Styles */
 
 .card {
-    max-width: 80%;
-    margin-top: 15vh;
-    border: solid;
-    border-width: 2px;
-    padding: 5vw;
-    border-radius: 30px;
-    border-color: lightgray;
-    box-shadow: 10px 5px 5px lightgray;
+  max-width: 80%;
+  margin-top: 15vh;
+  border: solid;
+  border-width: 2px;
+  padding: 5vw;
+  border-radius: 30px;
+  border-color: lightgray;
+  box-shadow: 10px 5px 5px lightgray;
 }
 
-/* Start div styles */
+/* Start Card Styles */
 
 #start-screen {
-    display: inline;
-    text-align: center;
+  display: inline;
+  text-align: center;
 }
 
-/* Question div styles */
+/* Question Card Styles */
 
 .option-button {
-    width: 100%;
-    text-align: left;
-    margin: 5px;
+  width: 100%;
+  text-align: left;
+  margin: 5px;
 }
 
 #result-div {
-    display: none;
+  display: none;
 }
 
-/* Score div styles */
+/* Score Card Styles */
 
 .inline-form {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 #initials {
-    width: 25%;
-    margin: 8px;
-    padding: 1vh;
+  width: 25%;
+  margin: 8px;
+  padding: 1vh;
 }
 
-/* Leaderboard div styles */
+/* Leaderboard Card Styles */
 
 #back-button {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 .highscore-list {
-    padding-inline-start: 20px;
+  padding-inline-start: 20px;
 }
 
+/* Media Queries */
+
 @media screen and (min-width: 850px) {
-    .card {
-        max-width: 680px;
-    }
+  .card {
+    max-width: 680px;
+  }
 }
 
 /* Media query that specifies devices that can utilize hover */
 @media (hover) {
-
-    /* Stylings pertaining to hover pseudo-class*/
-    a:hover {
-        color: #CBE1E0;
-    }
-
-    button:hover {
-        background-color: rgba(33, 131, 127, .5);
-    }
-
+  /* Stylings pertaining to hover pseudo-class*/
+  a:hover {
+    color: #cbe1e0;
   }
+
+  button:hover {
+    background-color: rgba(33, 131, 127, 0.5);
+  }
+}

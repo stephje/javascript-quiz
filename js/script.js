@@ -1,4 +1,4 @@
-//get the different cards by element and store in variables 
+//select the different card divs by id and assign to variables 
 const startCard = document.querySelector("#start-card");
 const questionCard = document.querySelector("#question-card");
 const scoreCard = document.querySelector("#score-card");
@@ -11,6 +11,10 @@ function hideCards (){
     scoreCard.setAttribute("hidden", true);
     leaderboardCard.setAttribute("hidden", true);
 }
+
+//select the div and paragraph elements used to display "correct"/"incorrect"
+var resultDiv = document.querySelector("#result-div");
+var resultText = document.querySelector("#result-text");
 
 //hide result text as required
 function hideResultText() {
@@ -49,9 +53,10 @@ const questions = [
 //intervalID assigned a value when start button is clicked
 var intervalID = undefined;
 
-//display available time in header of page as required
+//select span with id "time" - it is inside the time element
 var timeDisplay = document.querySelector("#time");
 
+//display time
 function displayTime() {
     timeDisplay.textContent = time;
 }
@@ -116,8 +121,7 @@ function displayQuestion() {
 //eventObject.target identifies the specific button element that was clicked on
 document.querySelector("#quiz-options").addEventListener("click", checkAnswer);
 
-var resultDiv = document.querySelector("#result-div");
-var resultText = document.querySelector("#result-text");
+
 
 //Compare the text content of the option button with the answer to the current question
 function optionIsCorrect(optionButton) {
