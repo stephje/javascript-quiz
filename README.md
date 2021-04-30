@@ -2,7 +2,7 @@
 
 ## Project Outline
 
-Interactive Javascript quiz that stores scores in local storage.
+An interactive, timed Javascript quiz that stores scores in local storage.
 Developed in accordance with the following acceptance criteria: 
 
 ```
