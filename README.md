@@ -2,7 +2,7 @@
 
 ## Project Outline
 
-An interactive, timed Javascript quiz that stores a high score leaderboard in local storage.
+An interactive, timed JavaScript quiz that stores a high score leaderboard in local storage.
 Developed in accordance with the following acceptance criteria: 
 
 ```
